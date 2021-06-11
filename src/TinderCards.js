@@ -15,8 +15,8 @@ function TinderCards() {
     ]);
     
     useEffect(() => {
-        
-    }, [])
+
+    }, []);
 
     return (
         <div>
