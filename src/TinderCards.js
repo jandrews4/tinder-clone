@@ -4,21 +4,21 @@ import './TinderCards.css';
 import database from './firebase';
 
 function TinderCards() {
-    const [people, setPeople] = useState([
-        {
-            name: 'steve jobs',
-            url: 'http://lds365.com/wp-content/uploads/2013/12/jesus-christ.jpg',
-        },
-        {
-            name: 'the zuck',
-            url: 'http://blogs.biomedcentral.com/bmcseriesblog/wp-content/uploads/sites/9/2016/02/Garden_Lizard_Calotes_head1.jpg',
-        },
-    ]);
-    
+    const [people, setPeople] = useState([]);
+        
+        //runs database and people when database does a change
     useEffect(() => {
-        database.collection('people').onSnapshot(snapshot => (
-            setPeople(snapshot.docs.map( doc => doc.data()))
-        ))
+
+        const unsubscribe = database
+        .collection('people')
+        .onSnapshot((snapshot) => 
+            setPeople(snapshot.docs.map( (doc) => doc.data()))
+        );
+
+        return () => {
+            //cleanup
+            unsubscribe();
+        };
     }, []);
 
     return (
