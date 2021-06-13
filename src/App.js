@@ -10,25 +10,18 @@ function App() {
     <div className="App">
       {/* header */}
       <Router>
-        <Header />
         <Switch>
         <Route path="/chat">
-          <h1>Chat page</h1>
+        <Header backButton="/"/>
+          <Chats />
         </Route>
         <Route path="/">
+          <Header />
           <TinderCards/>
           <SwipeButtons />
         </Route>
-
         </Switch>
-
-      {/* Cards */}
-      {/* buttons below card */}
-
-      {/* chat screen */}
-      {/* individual chat screen */}
       </Router>
-
     </div>
   );
 }
