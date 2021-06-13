@@ -37,9 +37,7 @@ function ChatScreen() {
                     className="chatScreen__image"
                     src={message.image}
                     alt={message.name}
-    
                     />
-
                     <p className="chatScreen__text">{message.message}</p>
                 </div>
             ) : (
@@ -49,9 +47,14 @@ function ChatScreen() {
             )))}
         
         </div>
-                
-
-    )
+    
+    );
+<form className="chatScreen__input">
+        <input 
+        className="chatScreen__inputfield" type="text"/>
+        <button className="chatScreen__inputButton">Send</button>
+</form>
 }
+
 
 export default ChatScreen;
